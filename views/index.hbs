@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="/">
+    <title>Angular 4 + Node.js + Express + MongoDB</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <!-- 1. Load libraries -->
+    <!-- Polyfill(s) for older browsers -->
+    <script src="js/vendor/es6-shim/es6-shim.min.js"></script>
+
+    <script src="js/vendor/zone.js/dist/zone.js"></script>
+    <script src="js/vendor/reflect-metadata/Reflect.js"></script>
+    <script src="js/vendor/systemjs/dist/system.src.js"></script>
+
+    <!-- 2. Configure SystemJS -->
+    <script src="systemjs.config.js"></script>
+
+
+    <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
+    <script type="text/javascript">
+
+        DG.then(function() {
+          var map,
+              markers = DG.featureGroup(),
+              coordinates = [];
+
+          map = DG.map('map', {
+              center: [46.398386236762924, 30.727740526199344],
+              zoom: 13
+          });
+
+          // for (var i = 0; i < 100; i++) {
+          //     coordinates[0] = 46.398386236762924 + Math.random();
+          //     coordinates[1] = 30.727740526199344 + Math.random();
+          //     DG.marker(coordinates).addTo(markers);
+          // }
+
+          // for (var i = 0; i < newMarker.length; i++) {
+          //    console.log(newMarker[i])
+          // }
+
+          function showMarkers() {
+              markers.addTo(map);
+              map.fitBounds(markers.getBounds());
+          };
+
+          function saveMarkers() {
+              markers.removeFrom(map);
+          };
+
+          DG.marker([46.398386236762924, 30.727740526199344]).addTo(map).bindPopup('Тут я живу)');
+
+          // По клику добавляется новый маркер
+          map.on('click', function (e) {
+            var newMarker = DG.marker(e.latlng).addTo(map).bindPopup('Вы добавили новый маркер');
+            console.log(e)
+          });
+      });
+    </script>
+</head>
+<body>
+<my-app>Loading...</my-app>
+<div id="map" style="width:500px; height:400px"></div>
+
+
+<script>
+    System.import('app').catch(function(err){ console.error(err);  });
+</script>
+</body>
+</html>
