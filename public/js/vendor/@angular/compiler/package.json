@@ -2,87 +2,76 @@
   "_args": [
     [
       {
-        "raw": "@angular/compiler@^4.0.0",
+        "raw": "@angular/compiler@2.0.0-rc.1",
         "scope": "@angular",
         "escapedName": "@angular%2fcompiler",
         "name": "@angular/compiler",
-        "rawSpec": "^4.0.0",
-        "spec": ">=4.0.0 <5.0.0",
-        "type": "range"
+        "rawSpec": "2.0.0-rc.1",
+        "spec": "2.0.0-rc.1",
+        "type": "version"
       },
-      "D:\\Do IT\\angular2-nodejs"
+      "D:\\Do IT\\1213213"
     ]
   ],
-  "_from": "@angular/compiler@>=4.0.0 <5.0.0",
-  "_id": "@angular/compiler@4.2.6",
+  "_from": "@angular/compiler@2.0.0-rc.1",
+  "_id": "@angular/compiler@2.0.0-rc.1",
   "_inCache": true,
   "_location": "/@angular/compiler",
-  "_nodeVersion": "6.9.5",
+  "_nodeVersion": "5.4.1",
   "_npmOperationalInternal": {
-    "host": "s3://npm-registry-packages",
-    "tmp": "tmp/compiler-4.2.6.tgz_1499490092178_0.7718348985072225"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/compiler-2.0.0-rc.1.tgz_1462310709468_0.36669089435599744"
   },
   "_npmUser": {
     "name": "angular",
     "email": "angular-core+npm@google.com"
   },
-  "_npmVersion": "3.10.7",
+  "_npmVersion": "3.8.7",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "@angular/compiler@^4.0.0",
+    "raw": "@angular/compiler@2.0.0-rc.1",
     "scope": "@angular",
     "escapedName": "@angular%2fcompiler",
     "name": "@angular/compiler",
-    "rawSpec": "^4.0.0",
-    "spec": ">=4.0.0 <5.0.0",
-    "type": "range"
+    "rawSpec": "2.0.0-rc.1",
+    "spec": "2.0.0-rc.1",
+    "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/@angular/compiler/-/compiler-4.2.6.tgz",
-  "_shasum": "667756d495ca0d45d2061268a10d52af839faff4",
+  "_resolved": "https://registry.npmjs.org/@angular/compiler/-/compiler-2.0.0-rc.1.tgz",
+  "_shasum": "2f69d866bc7623c80ba05dd4e1339bcfb02d0960",
   "_shrinkwrap": null,
-  "_spec": "@angular/compiler@^4.0.0",
-  "_where": "D:\\Do IT\\angular2-nodejs",
+  "_spec": "@angular/compiler@2.0.0-rc.1",
+  "_where": "D:\\Do IT\\1213213",
   "author": {
     "name": "angular"
   },
-  "bugs": {
-    "url": "https://github.com/angular/angular/issues"
-  },
-  "dependencies": {
-    "tslib": "^1.7.1"
-  },
-  "description": "Angular - the compiler library",
+  "dependencies": {},
+  "description": "",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "667756d495ca0d45d2061268a10d52af839faff4",
-    "tarball": "https://registry.npmjs.org/@angular/compiler/-/compiler-4.2.6.tgz"
+    "shasum": "2f69d866bc7623c80ba05dd4e1339bcfb02d0960",
+    "tarball": "https://registry.npmjs.org/@angular/compiler/-/compiler-2.0.0-rc.1.tgz"
   },
-  "es2015": "./@angular/compiler.js",
-  "homepage": "https://github.com/angular/angular#readme",
+  "jsnext:main": "esm/index.js",
   "license": "MIT",
-  "main": "./bundles/compiler.umd.js",
+  "main": "index.js",
   "maintainers": [
     {
       "name": "angular",
       "email": "angular-core+npm@google.com"
     }
   ],
-  "module": "./@angular/compiler.es5.js",
   "name": "@angular/compiler",
   "optionalDependencies": {},
   "peerDependencies": {
-    "@angular/core": "4.2.6"
+    "@angular/core": "2.0.0-rc.1"
   },
   "readme": "ERROR: No README data found!",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/angular/angular.git"
-  },
   "scripts": {},
-  "typings": "./compiler.d.ts",
-  "version": "4.2.6"
+  "typings": "index.d.ts",
+  "version": "2.0.0-rc.1"
 }

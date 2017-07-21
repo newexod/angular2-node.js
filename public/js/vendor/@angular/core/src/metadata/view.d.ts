@@ -1,21 +1,14 @@
+import { Type } from '../../src/facade/lang';
 /**
- * @license
- * Copyright Google Inc. All Rights Reserved.
+ * Defines template and style encapsulation options available for Component's {@link View}.
  *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-/**
- * Defines template and style encapsulation options available for Component's {@link Component}.
- *
- * See {@link Component#encapsulation}.
- * @stable
+ * See {@link ViewMetadata#encapsulation}.
  */
 export declare enum ViewEncapsulation {
     /**
      * Emulate `Native` scoping of styles by adding an attribute containing surrogate id to the Host
      * Element and pre-processing the style rules provided via
-     * {@link Component#styles} or {@link Component#styleUrls}, and adding the new Host Element
+     * {@link ViewMetadata#styles} or {@link ViewMetadata#stylesUrls}, and adding the new Host Element
      * attribute to all selectors.
      *
      * This is the default option.
@@ -33,10 +26,18 @@ export declare enum ViewEncapsulation {
      */
     None = 2,
 }
+export declare var VIEW_ENCAPSULATION_VALUES: ViewEncapsulation[];
 /**
  * Metadata properties available for configuring Views.
  *
- * For details on the `@Component` annotation, see {@link Component}.
+ * Each Angular component requires a single `@Component` and at least one `@View` annotation. The
+ * `@View` annotation specifies the HTML template to use, and lists the directives that are active
+ * within the template.
+ *
+ * When a component is instantiated, the template is loaded into the component's shadow root, and
+ * the expressions and statements in the template are evaluated against the component.
+ *
+ * For details on the `@Component` annotation, see {@link ComponentMetadata}.
  *
  * ### Example
  *
@@ -44,6 +45,7 @@ export declare enum ViewEncapsulation {
  * @Component({
  *   selector: 'greet',
  *   template: 'Hello {{name}}!',
+ *   directives: [GreetUser, Bold]
  * })
  * class Greet {
  *   name: string;
@@ -53,33 +55,69 @@ export declare enum ViewEncapsulation {
  *   }
  * }
  * ```
- *
- * @deprecated Use Component instead.
- *
- * {@link Component}
+ * @ts2dart_const
  */
 export declare class ViewMetadata {
-    /** {@link Component#templateUrl} */
-    templateUrl: string | undefined;
-    /** {@link Component#template} */
-    template: string | undefined;
-    /** {@link Component#stylesUrl} */
-    styleUrls: string[] | undefined;
-    /** {@link Component#styles} */
-    styles: string[] | undefined;
-    /** {@link Component#encapsulation} */
-    encapsulation: ViewEncapsulation | undefined;
-    /** {@link Component#animation} */
-    animations: any[] | undefined;
-    /** {@link Component#interpolation} */
-    interpolation: [string, string] | undefined;
-    constructor(opts?: {
+    /**
+     * Specifies a template URL for an Angular component.
+     *
+     * NOTE: Only one of `templateUrl` or `template` can be defined per View.
+     *
+     * <!-- TODO: what's the url relative to? -->
+     */
+    templateUrl: string;
+    /**
+     * Specifies an inline template for an Angular component.
+     *
+     * NOTE: Only one of `templateUrl` or `template` can be defined per View.
+     */
+    template: string;
+    /**
+     * Specifies stylesheet URLs for an Angular component.
+     *
+     * <!-- TODO: what's the url relative to? -->
+     */
+    styleUrls: string[];
+    /**
+     * Specifies an inline stylesheet for an Angular component.
+     */
+    styles: string[];
+    /**
+     * Specifies a list of directives that can be used within a template.
+     *
+     * Directives must be listed explicitly to provide proper component encapsulation.
+     *
+     * ### Example
+     *
+     * ```javascript
+     * @Component({
+     *   selector: 'my-component',
+     *   directives: [NgFor]
+     *   template: '
+     *   <ul>
+     *     <li *ngFor="let item of items">{{item}}</li>
+     *   </ul>'
+     * })
+     * class MyComponent {
+     * }
+     * ```
+     */
+    directives: Array<Type | any[]>;
+    pipes: Array<Type | any[]>;
+    /**
+     * Specify how the template and the styles should be encapsulated.
+     * The default is {@link ViewEncapsulation#Emulated `ViewEncapsulation.Emulated`} if the view
+     * has styles,
+     * otherwise {@link ViewEncapsulation#None `ViewEncapsulation.None`}.
+     */
+    encapsulation: ViewEncapsulation;
+    constructor({templateUrl, template, directives, pipes, encapsulation, styles, styleUrls}?: {
         templateUrl?: string;
         template?: string;
+        directives?: Array<Type | any[]>;
+        pipes?: Array<Type | any[]>;
         encapsulation?: ViewEncapsulation;
         styles?: string[];
         styleUrls?: string[];
-        animations?: any[];
-        interpolation?: [string, string];
     });
 }

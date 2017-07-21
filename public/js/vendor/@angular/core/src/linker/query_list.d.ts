@@ -1,17 +1,9 @@
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-import { Observable } from 'rxjs/Observable';
+import { Observable } from '../../src/facade/async';
 /**
  * An unmodifiable list of items that Angular keeps up to date when the state
  * of the application changes.
  *
- * The type of object that {@link ViewChildren}, {@link ContentChildren}, and {@link QueryList}
- * provide.
+ * The type of object that {@link QueryMetadata} and {@link ViewQueryMetadata} provide.
  *
  * Implements an iterable interface, therefore it can be used in both ES6
  * javascript `for (var i of items)` loops as well as in Angular templates with
@@ -25,55 +17,49 @@ import { Observable } from 'rxjs/Observable';
  * ```typescript
  * @Component({...})
  * class Container {
- *   @ViewChildren(Item) items:QueryList<Item>;
+ *   constructor(@Query(Item) items: QueryList<Item>) {
+ *     items.changes.subscribe(_ => console.log(items.length));
+ *   }
  * }
  * ```
- * @stable
  */
 export declare class QueryList<T> {
     private _dirty;
     private _results;
     private _emitter;
-    readonly changes: Observable<any>;
-    readonly length: number;
-    readonly first: T;
-    readonly last: T;
+    changes: Observable<any>;
+    length: number;
+    first: T;
+    last: T;
     /**
-     * See
-     * [Array.map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+     * returns a new array with the passed in function applied to each element.
      */
-    map<U>(fn: (item: T, index: number, array: T[]) => U): U[];
+    map<U>(fn: (item: T) => U): U[];
     /**
-     * See
-     * [Array.filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+     * returns a filtered array.
      */
-    filter(fn: (item: T, index: number, array: T[]) => boolean): T[];
+    filter(fn: (item: T) => boolean): T[];
     /**
-     * See
-     * [Array.find](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
+     * returns a reduced value.
      */
-    find(fn: (item: T, index: number, array: T[]) => boolean): T | undefined;
+    reduce<U>(fn: (acc: U, item: T) => U, init: U): U;
     /**
-     * See
-     * [Array.reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
+     * executes function for each element in a query.
      */
-    reduce<U>(fn: (prevValue: U, curValue: T, curIndex: number, array: T[]) => U, init: U): U;
+    forEach(fn: (item: T) => void): void;
     /**
-     * See
-     * [Array.forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+     * converts QueryList into an array
      */
-    forEach(fn: (item: T, index: number, array: T[]) => void): void;
-    /**
-     * See
-     * [Array.some](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
-     */
-    some(fn: (value: T, index: number, array: T[]) => boolean): boolean;
     toArray(): T[];
     toString(): string;
+    /**
+     * @internal
+     */
     reset(res: Array<T | any[]>): void;
+    /** @internal */
     notifyOnChanges(): void;
     /** internal */
     setDirty(): void;
     /** internal */
-    readonly dirty: boolean;
+    dirty: boolean;
 }

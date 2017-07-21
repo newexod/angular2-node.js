@@ -1,13 +1,7 @@
+import { EventEmitter } from '../../src/facade/async';
 import { LocationStrategy } from './location_strategy';
-/** @experimental */
-export interface PopStateEvent {
-    pop?: boolean;
-    type?: string;
-    url?: string;
-}
 /**
- * @whatItDoes `Location` is a service that applications can use to interact with a browser's URL.
- * @description
+ * `Location` is a service that applications can use to interact with a browser's URL.
  * Depending on which {@link LocationStrategy} is used, `Location` will either persist
  * to the URL's path or the URL's hash segment.
  *
@@ -23,22 +17,43 @@ export interface PopStateEvent {
  * - `/my/app/user/123/` **is not** normalized
  *
  * ### Example
- * {@example common/location/ts/path_location_component.ts region='LocationComponent'}
- * @stable
+ *
+ * ```
+ * import {Component} from '@angular/core';
+ * import {Location} from '@angular/common';
+ * import {
+ *   ROUTER_DIRECTIVES,
+ *   ROUTER_PROVIDERS,
+ *   RouteConfig
+ * } from '@angular/router';
+ *
+ * @Component({directives: [ROUTER_DIRECTIVES]})
+ * @RouteConfig([
+ *  {...},
+ * ])
+ * class AppCmp {
+ *   constructor(location: Location) {
+ *     location.go('/foo');
+ *   }
+ * }
+ *
+ * bootstrap(AppCmp, [ROUTER_PROVIDERS]);
+ * ```
  */
 export declare class Location {
+    platformStrategy: LocationStrategy;
+    /** @internal */
+    _subject: EventEmitter<any>;
+    /** @internal */
+    _baseHref: string;
     constructor(platformStrategy: LocationStrategy);
     /**
      * Returns the normalized URL path.
      */
-    path(includeHash?: boolean): string;
-    /**
-     * Normalizes the given path and compares to the current normalized path.
-     */
-    isCurrentPathEqualTo(path: string, query?: string): boolean;
+    path(): string;
     /**
      * Given a string representing a URL, returns the normalized URL path without leading or
-     * trailing slashes.
+     * trailing slashes
      */
     normalize(url: string): string;
     /**
@@ -69,7 +84,7 @@ export declare class Location {
     /**
      * Subscribe to the platform's `popState` events.
      */
-    subscribe(onNext: (value: PopStateEvent) => void, onThrow?: ((exception: any) => void) | null, onReturn?: (() => void) | null): Object;
+    subscribe(onNext: (value: any) => void, onThrow?: (exception: any) => void, onReturn?: () => void): Object;
     /**
      * Given a string of url parameters, prepend with '?' if needed, otherwise return parameters as
      * is.
@@ -80,9 +95,7 @@ export declare class Location {
      */
     static joinWithSlash(start: string, end: string): string;
     /**
-     * If url has a trailing slash, remove it, otherwise return url as is. This
-     * method looks for the first occurence of either #, ?, or the end of the
-     * line as `/` characters after any of these should not be replaced.
+     * If url has a trailing slash, remove it, otherwise return url as is.
      */
     static stripTrailingSlash(url: string): string;
 }

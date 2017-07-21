@@ -1,6 +1,4 @@
-/**
- * @license Angular v4.2.6
- * (c) 2010-2017 Google, Inc. https://angular.io/
- * License: MIT
- */ 
- export * from './testing/index'
+export * from './testing/browser_util';
+export * from './testing/browser_static';
+export * from './testing/matchers';
+export * from './testing/dom_test_component_renderer';

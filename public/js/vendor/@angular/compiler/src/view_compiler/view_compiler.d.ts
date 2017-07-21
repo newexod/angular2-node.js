@@ -1,19 +1,16 @@
-import { CompileDirectiveMetadata, CompilePipeSummary } from '../compile_metadata';
-import { CompileReflector } from '../compile_reflector';
-import { CompilerConfig } from '../config';
 import * as o from '../output/output_ast';
-import { ElementSchemaRegistry } from '../schema/element_schema_registry';
-import { TemplateAst } from '../template_parser/template_ast';
-import { OutputContext } from '../util';
+import { ViewCompileDependency } from './view_builder';
+import { CompileDirectiveMetadata, CompilePipeMetadata } from '../compile_metadata';
+import { TemplateAst } from '../template_ast';
+import { CompilerConfig } from '../config';
 export declare class ViewCompileResult {
-    viewClassVar: string;
-    rendererTypeVar: string;
-    constructor(viewClassVar: string, rendererTypeVar: string);
+    statements: o.Statement[];
+    viewFactoryVar: string;
+    dependencies: ViewCompileDependency[];
+    constructor(statements: o.Statement[], viewFactoryVar: string, dependencies: ViewCompileDependency[]);
 }
 export declare class ViewCompiler {
-    private _config;
-    private _reflector;
-    private _schemaRegistry;
-    constructor(_config: CompilerConfig, _reflector: CompileReflector, _schemaRegistry: ElementSchemaRegistry);
-    compileComponent(outputCtx: OutputContext, component: CompileDirectiveMetadata, template: TemplateAst[], styles: o.Expression, usedPipes: CompilePipeSummary[]): ViewCompileResult;
+    private _genConfig;
+    constructor(_genConfig: CompilerConfig);
+    compileComponent(component: CompileDirectiveMetadata, template: TemplateAst[], styles: o.Expression, pipes: CompilePipeMetadata[]): ViewCompileResult;
 }

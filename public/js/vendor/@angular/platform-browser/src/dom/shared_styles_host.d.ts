@@ -1,24 +1,19 @@
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-import { OnDestroy } from '@angular/core';
 export declare class SharedStylesHost {
+    /** @internal */
+    _styles: string[];
+    /** @internal */
+    _stylesSet: Set<string>;
+    constructor();
     addStyles(styles: string[]): void;
-    onStylesAdded(additions: Set<string>): void;
+    onStylesAdded(additions: string[]): void;
     getAllStyles(): string[];
 }
-export declare class DomSharedStylesHost extends SharedStylesHost implements OnDestroy {
-    private _doc;
+export declare class DomSharedStylesHost extends SharedStylesHost {
     private _hostNodes;
-    private _styleNodes;
-    constructor(_doc: any);
-    private _addStylesToHost(styles, host);
+    constructor(doc: any);
+    /** @internal */
+    _addStylesToHost(styles: string[], host: Node): void;
     addHost(hostNode: Node): void;
     removeHost(hostNode: Node): void;
-    onStylesAdded(additions: Set<string>): void;
-    ngOnDestroy(): void;
+    onStylesAdded(additions: string[]): void;
 }

@@ -1,6 +1,2 @@
-/**
- * @license Angular v4.2.6
- * (c) 2010-2017 Google, Inc. https://angular.io/
- * License: MIT
- */ 
- export * from './testing/index'
+export { MockLocationStrategy } from './testing/mock_location_strategy';
+export { SpyLocation } from './testing/location_mock';

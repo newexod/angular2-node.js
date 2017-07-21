@@ -2,89 +2,77 @@
   "_args": [
     [
       {
-        "raw": "@angular/http@^4.0.0",
+        "raw": "@angular/http@2.0.0-rc.1",
         "scope": "@angular",
         "escapedName": "@angular%2fhttp",
         "name": "@angular/http",
-        "rawSpec": "^4.0.0",
-        "spec": ">=4.0.0 <5.0.0",
-        "type": "range"
+        "rawSpec": "2.0.0-rc.1",
+        "spec": "2.0.0-rc.1",
+        "type": "version"
       },
-      "D:\\Do IT\\angular2-nodejs"
+      "D:\\Do IT\\1213213"
     ]
   ],
-  "_from": "@angular/http@>=4.0.0 <5.0.0",
-  "_id": "@angular/http@4.2.6",
+  "_from": "@angular/http@2.0.0-rc.1",
+  "_id": "@angular/http@2.0.0-rc.1",
   "_inCache": true,
   "_location": "/@angular/http",
-  "_nodeVersion": "6.9.5",
+  "_nodeVersion": "5.4.1",
   "_npmOperationalInternal": {
-    "host": "s3://npm-registry-packages",
-    "tmp": "tmp/http-4.2.6.tgz_1499490108091_0.3699876549653709"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/http-2.0.0-rc.1.tgz_1462310721571_0.5386864563915879"
   },
   "_npmUser": {
     "name": "angular",
     "email": "angular-core+npm@google.com"
   },
-  "_npmVersion": "3.10.7",
+  "_npmVersion": "3.8.7",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "@angular/http@^4.0.0",
+    "raw": "@angular/http@2.0.0-rc.1",
     "scope": "@angular",
     "escapedName": "@angular%2fhttp",
     "name": "@angular/http",
-    "rawSpec": "^4.0.0",
-    "spec": ">=4.0.0 <5.0.0",
-    "type": "range"
+    "rawSpec": "2.0.0-rc.1",
+    "spec": "2.0.0-rc.1",
+    "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/@angular/http/-/http-4.2.6.tgz",
-  "_shasum": "499e2ba0bbc1f3d71b76debec034c958caf1134e",
+  "_resolved": "https://registry.npmjs.org/@angular/http/-/http-2.0.0-rc.1.tgz",
+  "_shasum": "9be6485e74f4edbcdc856f04235d9b467fc6cdeb",
   "_shrinkwrap": null,
-  "_spec": "@angular/http@^4.0.0",
-  "_where": "D:\\Do IT\\angular2-nodejs",
+  "_spec": "@angular/http@2.0.0-rc.1",
+  "_where": "D:\\Do IT\\1213213",
   "author": {
     "name": "angular"
   },
-  "bugs": {
-    "url": "https://github.com/angular/angular/issues"
-  },
-  "dependencies": {
-    "tslib": "^1.7.1"
-  },
-  "description": "Angular - the http service",
+  "dependencies": {},
+  "description": "",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "499e2ba0bbc1f3d71b76debec034c958caf1134e",
-    "tarball": "https://registry.npmjs.org/@angular/http/-/http-4.2.6.tgz"
+    "shasum": "9be6485e74f4edbcdc856f04235d9b467fc6cdeb",
+    "tarball": "https://registry.npmjs.org/@angular/http/-/http-2.0.0-rc.1.tgz"
   },
-  "es2015": "./@angular/http.js",
-  "homepage": "https://github.com/angular/angular#readme",
+  "jsnext:main": "esm/index.js",
   "license": "MIT",
-  "main": "./bundles/http.umd.js",
+  "main": "index.js",
   "maintainers": [
     {
       "name": "angular",
       "email": "angular-core+npm@google.com"
     }
   ],
-  "module": "./@angular/http.es5.js",
   "name": "@angular/http",
   "optionalDependencies": {},
   "peerDependencies": {
-    "rxjs": "^5.0.1",
-    "@angular/core": "4.2.6",
-    "@angular/platform-browser": "4.2.6"
+    "rxjs": "5.0.0-beta.6",
+    "@angular/core": "2.0.0-rc.1"
   },
   "readme": "ERROR: No README data found!",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/angular/angular.git"
-  },
   "scripts": {},
-  "typings": "./http.d.ts",
-  "version": "4.2.6"
+  "typings": "index.d.ts",
+  "version": "2.0.0-rc.1"
 }

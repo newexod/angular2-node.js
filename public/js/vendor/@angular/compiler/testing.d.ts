@@ -1,6 +1,5 @@
-/**
- * @license Angular v4.2.6
- * (c) 2010-2017 Google, Inc. https://angular.io/
- * License: MIT
- */ 
- export * from './testing/index'
+export * from './testing/schema_registry_mock';
+export * from './testing/view_resolver_mock';
+export * from './testing/xhr_mock';
+export * from './testing/test_component_builder';
+export * from './testing/directive_resolver_mock';

@@ -27,21 +27,27 @@ gulp.task('build-copy', function () {
 
 gulp.task('vendor', function() {
 
+    // Angular 4 Framework
     gulp.src('node_modules/@angular/**')
         .pipe(gulp.dest(vendor + '/@angular'));
 
+    //ES6 Shim
     gulp.src('node_modules/es6-shim/**')
         .pipe(gulp.dest(vendor + '/es6-shim/'));
 
+    //reflect metadata
     gulp.src('node_modules/reflect-metadata/**')
         .pipe(gulp.dest(vendor + '/reflect-metadata/'));
 
+    //rxjs
     gulp.src('node_modules/rxjs/**')
         .pipe(gulp.dest(vendor + '/rxjs/'));
 
+    //systemjs
     gulp.src('node_modules/systemjs/**')
         .pipe(gulp.dest(vendor + '/systemjs/'));
 
+    //zonejs
     return gulp.src('node_modules/zone.js/**')
         .pipe(gulp.dest(vendor + '/zone.js/'));
 });

@@ -1,6 +1,8 @@
-/**
- * @license Angular v4.2.6
- * (c) 2010-2017 Google, Inc. https://angular.io/
- * License: MIT
- */ 
- export * from './testing/index'
+export * from './testing/fake_async';
+export * from './testing/lang_utils';
+export * from './testing/logger';
+export * from './testing/ng_zone_mock';
+export * from './testing/regexp';
+export * from './testing/test_injector';
+export * from './testing/testing';
+export * from './testing/mock_application_ref';
